@@ -1,0 +1,17 @@
+diff --git a/akonadi/kmime/specialmailcollections.cpp b/akonadi/kmime/specialmailcollecti
+index 4cbb406..b408cd8 100644
+--- a/akonadi/kmime/specialmailcollections.cpp
++++ b/akonadi/kmime/specialmailcollections.cpp
+@@ -47,9 +47,9 @@ static const char s_specialCollectionTypes[SpecialMailCollections::Last
+     "local-mail",
+     "inbox",
+     "outbox",
+-    "sent-mail",
+-    "trash",
+-    "drafts",
++    "Sent",
++    "Trash",
++    "Drafts",
+     "templates"
+ };
+
