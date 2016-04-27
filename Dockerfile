@@ -11,14 +11,15 @@ RUN echo 'deb http://obs.kolabsys.com/repositories/Kontact:/4.13/Ubuntu_14.04/ /
     apt-get update
 
 RUN apt-get build-dep -y kdepimlibs
-RUN mkdir /code && cd /code && apt-get source kdepimlibs
+RUN apt-get build-dep -y akonadi
+RUN mkdir /code && cd /code && apt-get source akonadi
 
 COPY patch /code/patch
-RUN cd /code/kdepimlibs-4.13.3+really4.13.0.18/ && patch -p1 < /code/patch
+RUN cd /code/akonadi-1.12.42.5 && patch -p1 < /code/patch
 
 # Build the new package
-RUN cd /code/kdepimlibs-4.13.3+really4.13.0.18/ && \
-    dch -i "Special release for EyeOS"
+#RUN cd /code/akonadi-1.12.42.5 && \
+    #dch -i "Special release for EyeOS"
 
-RUN cd /code/kdepimlibs-4.13.3+really4.13.0.18/ && \ 
+RUN cd /code/akonadi-1.12.42.5 && \
     dpkg-buildpackage -b || true
